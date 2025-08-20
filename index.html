@@ -154,6 +154,73 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--primary);
+            padding-left: 1rem;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -315,6 +382,7 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            padding-bottom: 3rem;
         }
 
         .project-card:hover {
@@ -358,6 +426,33 @@
             border-radius: 20px;
             font-size: 0.8rem;
             color: var(--primary);
+        }
+
+        .project-button {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            color: #6366f1;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(139, 92, 246, 0.35));
+            transform: scale(1.05);
+            color: #4f46e5;
         }
 
         /* Contact Section */
@@ -453,14 +548,34 @@
             }
         }
 
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
 
             .about-content {
@@ -476,53 +591,59 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                margin: 0.5rem;
+            }
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
 
-        .project-card {
-            position: relative;
-            /* important to keep button inside */
-            padding-bottom: 3rem;
-            /* space so text doesn’t overlap button */
-        }
+            .hero .subtitle {
+                font-size: 1rem;
+            }
 
-        .project-button {
-            position: absolute;
-            bottom: 1rem;
-            /* stick to bottom */
-            left: 50%;
-            transform: translateX(-50%);
-        }
+            .section-title {
+                font-size: 2rem;
+            }
 
-        .project-link {
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            font-size: 0.85rem;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
-            color: #6366f1;
-            text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .project-link:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(139, 92, 246, 0.35));
-            transform: scale(1.05);
-            color: #4f46e5;
+            .project-card {
+                min-width: unset;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .contact-link {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -550,8 +671,24 @@
                 <li><a href="games.html">Games</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
+            <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="games.html" onclick="closeMobileMenu()">Games</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero">
         <div class="hero-content">
@@ -612,7 +749,7 @@
             <div class="project-card">
                 <div class="project-image">🌐</div>
                 <div class="project-content">
-                    <h3 class="project-title">Online Clinic Mangaement System</h3>
+                    <h3 class="project-title">Online Clinic Management System</h3>
                     <p class="project-description">An Online Clinic Management System that streamlines patient
                         registration, appointment scheduling, medical records, and billing through a centralized digital
                         platform.</p>
@@ -669,7 +806,7 @@
                 <div class="project-content">
                     <h3 class="project-title">Kidkinder</h3>
                     <p class="project-description">KidKinder is an interactive platform designed to manage and showcase
-                        kids’ learning, activities, and services in a playful and engaging way.</p>
+                        kids' learning, activities, and services in a playful and engaging way.</p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS3</span>
@@ -681,15 +818,13 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">Let's Connect</h2>
         <div class="contact-content">
-            <p style="color: #525e80">Let’s connect and build something amazing together.</p>
+            <p style="color: #525e80">Let's connect and build something amazing together.</p>
             <div class="contact-links">
                 <a href="mailto:sunnyjangra5506883@gmail.com" class="contact-link">
                     <span>📧</span> Email
@@ -705,6 +840,33 @@
     </section>
 
     <script>
+        // Mobile menu toggle functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!mobileMenu.contains(event.target) && !toggle.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
