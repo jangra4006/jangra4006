@@ -1,16 +1,51 @@
 ## Hi there 👋
 
-<!--
-**jangra4006/jangra4006** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# 🌟 My Portfolio Website
 
-Here are some ideas to get you started:
+Welcome to my personal portfolio!  
+This project showcases my skills, projects, and achievements as a **Full Stack Developer**.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## 🚀 Live Demo
+👉 [Visit Portfolio](https://jangra4006.github.io/)
+
+---
+
+## 📂 Project Structure
+- **index.html** → Main landing page of the portfolio  
+- **games.html** → Fun games section (extra page)  
+- **sunny_image.jpg** → My profile picture  
+- **Sunny(Resume).pdf** → My resume  
+
+---
+
+## 💻 Technologies Used
+- HTML5  
+- CSS3  
+- JavaScript  
+- Git & GitHub Pages (for deployment)  
+
+---
+
+## 📸 Preview
+![Portfolio Preview](sunny_image.jpg)
+
+---
+
+## ✨ Features
+- Responsive design  
+- Smooth navigation  
+- Games & interactive sections  
+- Downloadable resume  
+
+---
+
+## 📬 Contact
+- **Name:** Sunny Jangra  
+- **Email:** *(sunnyjangra5506883@gmail.com)*  
+- **GitHub:** [@jangra4006](https://github.com/jangra4006)  
+
+---
+
+
